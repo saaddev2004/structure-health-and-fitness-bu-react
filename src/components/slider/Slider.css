@@ -1,0 +1,165 @@
+/* Indicator Styles */
+.my-indicators {
+    z-index: 15;
+    flex-direction: column;
+    top: 37% !important;
+    left: 50px !important;
+    margin: 0 !important;
+}
+
+.my-ind {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 15px !important;
+    width: 15px !important;
+    border-radius: 50%;
+    margin: 2px;
+    background-color: rgba(232, 232, 232, 0.63) !important;
+    border: 2px solid white !important;
+    opacity: 1 !important;
+    transition: all 0.3s ease !important;
+}
+
+.my-ind.active,
+.my-ind:hover {
+    border-color: #ffcc00 !important;
+    background-color: transparent !important;
+}
+
+.my-ind.active .dot,
+.my-ind:hover .dot {
+    display: block;
+}
+
+.dot {
+    display: none;
+    height: 7px;
+    width: 7px;
+    background-color: #ffcc00;
+    border-radius: 50%;
+    transition: all 0.3s ease !important;
+}
+
+/* Slide Box Styles */
+.carousel-item {
+    transition: transform 0.6s ease-in-out !important;
+     background-color: #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Slide Background Styles */
+.s1 { background-image: url('/public/assets/images/Slide_1.webp'); }
+.s2 { background-image: url('/public/assets/images/Slide_2.webp'); }
+.s3 { background-image: url('/public/assets/images/Slide_3.webp'); }
+.s4 { background-image: url('/public/assets/images/Slide_4.webp'); }
+
+/* Common Styles for Slides */
+.s1, .s2, .s3, .s4 {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+}
+
+/* Responsive Styles */
+@media (min-width: 1020px) {
+    .slide-box { height: auto; }
+    .s1, .s2, .s3, .s4 { height: 72vw; }
+    .slide-all-content{ bottom: 20% !important; }
+    .slide-text { font-size: 4.1vw !important; margin: -13px !important; }
+    .slide-btn { font-size: 2.12vw !important; padding: 1.2vw 5.1vw !important;  bottom: 6.5% !important; right: 1.5% !important; }
+    .text-side-line{ margin-left: 18px !important; margin-right: 10px !important; } 
+}
+
+@media (min-width: 768px) and (max-width: 1020px) {
+    .slide-box { height: 100vh; }
+    .s1, .s2, .s3, .s4 { height: 75vw; }
+    .slide-all-content{ bottom: 22% !important; }
+    .slide-text { font-size: 4.16vw !important; margin: -9px !important; }
+    .slide-btn { font-size: 2.21vw !important; padding: 1.1vw 5.21vw !important; bottom: 6.5% !important; right: 1.5% !important; }
+    .text-side-line{ margin-left: 16px !important;} 
+}
+
+@media (min-width: 480px) and (max-width: 768px) {
+    .slide-box { height: 100vh; }
+    .s1, .s2, .s3, .s4 { height: 123vw; }
+    .slide-all-content{ bottom: 14% !important; }
+    .slide-text { font-size: 4vw !important;  margin: -6px !important; }
+    .slide-btn { font-size: 2.1vw !important; padding: 1.1vw 4.8vw !important; bottom: 4.5% !important; right: 1.5% !important; }
+    .text-side-line{ margin-left: 13px !important;} 
+}
+
+@media (max-width: 480px) {
+    .slide-box { height: 100vh; }
+    .s1, .s2, .s3, .s4 { height: 150vw; }
+    .slide-all-content{ bottom: 10% !important; }
+    .slide-text { font-size: 4vw !important; margin: -4px !important; }
+    .slide-btn { font-size: 2vw !important; padding: 1.1vw 4.8vw !important; bottom: 4.5% !important; right: 1.5% !important;}
+    .text-side-line{ margin-left: 10px !important;} 
+}
+
+/* Slide Content Styles */
+.slide-all-content {
+    position: absolute;
+    right: 0px;
+    z-index: 2;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.slide-text-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.slide-text {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 900;
+}
+
+.text-side-line {
+    width: 10px;
+    background-color: #ffcc00;
+}
+
+/* Button Styles */
+.slide-btn {
+    border-radius: 5px;
+    color: black;
+    font-weight: 500;
+    background-color: #ffcc00;
+    font-family: "Montserrat", sans-serif;
+    position: absolute;
+    z-index: 5;
+}
+
+.slide-btn:hover {
+    background-color: black;
+    color: white;
+}
+
+/* Corner Styles */
+.left-corner,
+.right-corner {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.left-corner {
+    bottom: 0;
+    right: 0;
+    width: 70%;
+    height: 57%;
+    clip-path: polygon(0% 100%, 100% 0%, 100% 100%);
+}
+
+.right-corner {
+    width: 24.3%;
+    height: 34%;
+    clip-path: polygon(0% 0%, 0% 100%, 100% 0%);
+}
