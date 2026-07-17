@@ -24,14 +24,18 @@ router.post('/signup', async (req, res) => {
     const newSignup = new Signup({ name, email });
     await newSignup.save();
 
-    // Send email
-    const mailOptions = {
-      from: process.env.EMAIL_USER,
-      to: process.env.EMAIL_USER,
-      subject: 'New Signup',
-      text: `New signup received:\nName: ${name}\nEmail: ${email}`,
-    };
-    await transporter.sendMail(mailOptions);
+    // Email send in a separate try-catch to prevent app crash if email fails
+    try {
+      const mailOptions = {
+        from: process.env.EMAIL_USER,
+        to: process.env.EMAIL_USER,
+        subject: 'New Signup',
+        text: `New signup received:\nName: ${name}\nEmail: ${email}`,
+      };
+      await transporter.sendMail(mailOptions);
+    } catch (emailError) {
+      console.log('Signup Email failed to send:', emailError.message);
+    }
 
     res.status(201).json({ message: 'Signup successful' });
   } catch (error) {
@@ -46,8 +50,9 @@ router.post('/membership', async (req, res) => {
     const newMembership = new Membership(membershipData);
     await newMembership.save();
 
-    // Send email
-    const emailBody = `
+    // Email send in a separate try-catch
+    try {
+      const emailBody = `
 New Membership Application:
 
 Name: ${membershipData.name}
@@ -69,15 +74,18 @@ Activity Level: ${membershipData.activityLevel}
 Eating Habits: ${membershipData.eatingHabits}
 Commitment Level: ${membershipData.commitmentLevel}
 Comments: ${membershipData.comments}
-    `;
+      `;
 
-    const mailOptions = {
-      from: process.env.EMAIL_USER,
-      to: process.env.EMAIL_USER,
-      subject: 'New Membership Application',
-      text: emailBody,
-    };
-    await transporter.sendMail(mailOptions);
+      const mailOptions = {
+        from: process.env.EMAIL_USER,
+        to: process.env.EMAIL_USER,
+        subject: 'New Membership Application',
+        text: emailBody,
+      };
+      await transporter.sendMail(mailOptions);
+    } catch (emailError) {
+      console.log('Membership Email failed to send:', emailError.message);
+    }
 
     res.status(201).json({ message: 'Membership application submitted' });
   } catch (error) {
@@ -92,14 +100,18 @@ router.post('/contact', async (req, res) => {
     const newContact = new Contact({ name, email, phone, branch, message });
     await newContact.save();
 
-    // Send email
-    const mailOptions = {
-      from: process.env.EMAIL_USER,
-      to: process.env.EMAIL_USER,
-      subject: 'New Contact Inquiry',
-      text: `New contact inquiry:\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nBranch: ${branch}\nMessage: ${message}`,
-    };
-    await transporter.sendMail(mailOptions);
+    // Email send in a separate try-catch
+    try {
+      const mailOptions = {
+        from: process.env.EMAIL_USER,
+        to: process.env.EMAIL_USER,
+        subject: 'New Contact Inquiry',
+        text: `New contact inquiry:\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nBranch: ${branch}\nMessage: ${message}`,
+      };
+      await transporter.sendMail(mailOptions);
+    } catch (emailError) {
+      console.log('Contact Email failed to send:', emailError.message);
+    }
 
     res.status(201).json({ message: 'Contact inquiry submitted' });
   } catch (error) {
@@ -114,14 +126,18 @@ router.post('/trial', async (req, res) => {
     const newTrial = new Trial({ firstName, lastName, email, phone, location });
     await newTrial.save();
 
-    // Send email
-    const mailOptions = {
-      from: process.env.EMAIL_USER,
-      to: process.env.EMAIL_USER,
-      subject: 'New Trial Signup',
-      text: `New trial signup:\nFirst Name: ${firstName}\nLast Name: ${lastName}\nEmail: ${email}\nPhone: ${phone}\nLocation: ${location}`,
-    };
-    await transporter.sendMail(mailOptions);
+    // Email send in a separate try-catch
+    try {
+      const mailOptions = {
+        from: process.env.EMAIL_USER,
+        to: process.env.EMAIL_USER,
+        subject: 'New Trial Signup',
+        text: `New trial signup:\nFirst Name: ${firstName}\nLast Name: ${lastName}\nEmail: ${email}\nPhone: ${phone}\nLocation: ${location}`,
+      };
+      await transporter.sendMail(mailOptions);
+    } catch (emailError) {
+      console.log('Trial Email failed to send:', emailError.message);
+    }
 
     res.status(201).json({ message: 'Trial signup submitted' });
   } catch (error) {
