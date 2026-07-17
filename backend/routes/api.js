@@ -18,13 +18,15 @@ const transporter = nodemailer.createTransport({
 });
 
 // Signup route
+// Signup route
 router.post('/signup', async (req, res) => {
   try {
     const { name, email } = req.body;
     const newSignup = new Signup({ name, email });
-    await newSignup.save();
+    await newSignup.save(); // Data MongoDB mein foran save ho jayega
 
-    // Email send in a separate try-catch to prevent app crash if email fails
+    // Email bhejne wale code ko filhal band (disable) kar diya hai
+    /*
     try {
       const mailOptions = {
         from: process.env.EMAIL_USER,
@@ -36,7 +38,9 @@ router.post('/signup', async (req, res) => {
     } catch (emailError) {
       console.log('Signup Email failed to send:', emailError.message);
     }
+    */
 
+    // Database mein save hote hi foran Success bhej dega
     res.status(201).json({ message: 'Signup successful' });
   } catch (error) {
     res.status(500).json({ error: error.message });
