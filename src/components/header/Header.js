@@ -60,7 +60,7 @@ const Header = ({ BgColor }) => {
       <nav className="mx-lg-2 navbar bg-transparent navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
           <Link className="navbar-brand image-container" to="/">
-            <img className="hover-image" src={`${process.env.PUBLIC_URL}/favicon.ico`} alt="Logo" />
+            <img className="hover-image" src="assets/images/logo.png" alt="Logo" />
           </Link>
           <button
             className={`my-navbar-toggler navbar-toggler ${isMenuOpen ? "active" : ""}`}
@@ -92,8 +92,8 @@ const Header = ({ BgColor }) => {
                 <Link className="text-decoration-none nav-link n-item my-menu-btn text-light" to="/contact">Contact</Link>
               </li>
               <li className="nav-item">
-              <Link className="text-decoration-none" to="/membership">
-                <button type="button" className="join-btn my-menu-btn border-0 text-light">Join Now</button>
+                <Link className="text-decoration-none" to="/membership">
+                  <button type="button" className="join-btn my-menu-btn border-0 text-light">Join Now</button>
                 </Link>
               </li>
               <li className="nav-item s-icon">
