@@ -1,12 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const nodemailer = require('nodemailer');
+// const nodemailer = require('nodemailer'); // <-- Disabled
 const Signup = require('../models/Signup');
 const Membership = require('../models/Membership');
 const Contact = require('../models/Contact');
 const Trial = require('../models/Trial');
 
-// Nodemailer transporter
+// Nodemailer transporter (Filhal band kar diya hai)
+/*
 const transporter = nodemailer.createTransport({
   host: process.env.EMAIL_HOST,
   port: process.env.EMAIL_PORT,
@@ -16,16 +17,16 @@ const transporter = nodemailer.createTransport({
     pass: process.env.EMAIL_PASS,
   },
 });
+*/
 
-// Signup route
 // Signup route
 router.post('/signup', async (req, res) => {
   try {
     const { name, email } = req.body;
     const newSignup = new Signup({ name, email });
-    await newSignup.save(); // Data MongoDB mein foran save ho jayega
+    await newSignup.save();
 
-    // Email bhejne wale code ko filhal band (disable) kar diya hai
+    // Email send in a separate try-catch (Disabled)
     /*
     try {
       const mailOptions = {
@@ -40,7 +41,6 @@ router.post('/signup', async (req, res) => {
     }
     */
 
-    // Database mein save hote hi foran Success bhej dega
     res.status(201).json({ message: 'Signup successful' });
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -54,32 +54,10 @@ router.post('/membership', async (req, res) => {
     const newMembership = new Membership(membershipData);
     await newMembership.save();
 
-    // Email send in a separate try-catch
+    // Email send in a separate try-catch (Disabled)
+    /*
     try {
-      const emailBody = `
-New Membership Application:
-
-Name: ${membershipData.name}
-Email: ${membershipData.email}
-Gender: ${membershipData.gender}
-Occupation: ${membershipData.occupation}
-Country: ${membershipData.country}
-Phone: ${membershipData.phone}
-Branch: ${membershipData.branch}
-Weight: ${membershipData.weight}
-Height: ${membershipData.heightFeet} ft ${membershipData.heightInches} in
-BMI: ${membershipData.bmi}
-BMI Category: ${membershipData.bmiCategory}
-Fitness Goals: ${membershipData.fitnessGoals ? membershipData.fitnessGoals.join(', ') : ''}
-Smoking: ${membershipData.smoking}
-Alcohol: ${membershipData.alcohol}
-Interested in Session: ${membershipData.interestedInSession}
-Activity Level: ${membershipData.activityLevel}
-Eating Habits: ${membershipData.eatingHabits}
-Commitment Level: ${membershipData.commitmentLevel}
-Comments: ${membershipData.comments}
-      `;
-
+      const emailBody = `...`; // Content hidden for brevity
       const mailOptions = {
         from: process.env.EMAIL_USER,
         to: process.env.EMAIL_USER,
@@ -90,6 +68,7 @@ Comments: ${membershipData.comments}
     } catch (emailError) {
       console.log('Membership Email failed to send:', emailError.message);
     }
+    */
 
     res.status(201).json({ message: 'Membership application submitted' });
   } catch (error) {
@@ -104,7 +83,8 @@ router.post('/contact', async (req, res) => {
     const newContact = new Contact({ name, email, phone, branch, message });
     await newContact.save();
 
-    // Email send in a separate try-catch
+    // Email send in a separate try-catch (Disabled)
+    /*
     try {
       const mailOptions = {
         from: process.env.EMAIL_USER,
@@ -116,6 +96,7 @@ router.post('/contact', async (req, res) => {
     } catch (emailError) {
       console.log('Contact Email failed to send:', emailError.message);
     }
+    */
 
     res.status(201).json({ message: 'Contact inquiry submitted' });
   } catch (error) {
@@ -130,7 +111,8 @@ router.post('/trial', async (req, res) => {
     const newTrial = new Trial({ firstName, lastName, email, phone, location });
     await newTrial.save();
 
-    // Email send in a separate try-catch
+    // Email send in a separate try-catch (Disabled)
+    /*
     try {
       const mailOptions = {
         from: process.env.EMAIL_USER,
@@ -142,6 +124,7 @@ router.post('/trial', async (req, res) => {
     } catch (emailError) {
       console.log('Trial Email failed to send:', emailError.message);
     }
+    */
 
     res.status(201).json({ message: 'Trial signup submitted' });
   } catch (error) {
