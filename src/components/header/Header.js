@@ -60,7 +60,7 @@ const Header = ({ BgColor }) => {
       <nav className="mx-lg-2 navbar bg-transparent navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
           <Link className="navbar-brand image-container" to="/">
-            <img className="hover-image" src="https://st.structure.com.pk/wp-content/uploads/2023/07/Sturcture-logo.png" alt="" />
+            <img className="hover-image" src={`${process.env.PUBLIC_URL}/favicon.ico`} alt="Logo" />
           </Link>
           <button
             className={`my-navbar-toggler navbar-toggler ${isMenuOpen ? "active" : ""}`}
