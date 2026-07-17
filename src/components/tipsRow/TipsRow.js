@@ -16,7 +16,7 @@ const TipsRow = () => {
                                 <div className='text-start bold-tip py-1'>{tip.title}</div>
                                 <div className='tip-link-con'>
                                     <FontAwesomeIcon icon={faAlignLeft} className='tip-icon me-2' />
-                                    <a href='#'>Fitness</a>
+                                    <span>Fitness</span>
                                 </div>
                                 <div className='tip-text text-start pt-2 pb-3'>{tip.detail}</div>
                             </div>

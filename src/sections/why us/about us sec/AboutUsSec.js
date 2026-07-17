@@ -36,9 +36,9 @@ const AboutUsSec = () => {
                     {aboutUsData.map((item, index) => (
                             <div className='col-md-6 col-12 pt-5' key={index}>
                                 <div className={`why-box ${item.wb_BG}`}>
-                                    <a className='why-box-link' href='#'>
+                                    <div className='why-box-link'>
                                         {item.lint_text}
-                                    </a>
+                                    </div>
                                 </div>
                             </div>
                         ))}

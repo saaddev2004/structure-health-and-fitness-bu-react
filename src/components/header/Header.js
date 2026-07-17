@@ -80,24 +80,16 @@ const Header = ({ BgColor }) => {
           <div className={`collapse navbar-collapse w-100 ${isMenuOpen ? "show" : ""}`} id="navbarSupportedContent">
             <ul className="navbar-nav d-flex justify-content-end w-100 mb-2 mb-lg-0">
               <li className="nav-item n-item">
-                <Link className="text-decoration-none" to="/why-us">
-                  <a className="nav-link n-item my-menu-btn text-light" aria-current="page" href="#">Why Us</a>
-                </Link>
+                <Link className="text-decoration-none nav-link n-item my-menu-btn text-light" aria-current="page" to="/why-us">Why Us</Link>
               </li>
               <li className="nav-item n-item">
-                <Link className="text-decoration-none" to="/membership">
-                  <a className="nav-link n-item my-menu-btn text-light" href="#">Membership</a>
-                </Link>
+                <Link className="text-decoration-none nav-link n-item my-menu-btn text-light" to="/membership">Membership</Link>
               </li>
               <li className="nav-item n-item">
-                <Link className="text-decoration-none" to="/our-branches">
-                  <a className="nav-link n-item my-menu-btn text-light" href="#">Our Branches</a>
-                </Link>
+                <Link className="text-decoration-none nav-link n-item my-menu-btn text-light" to="/our-branches">Our Branches</Link>
               </li>
               <li className="nav-item n-item">
-                <Link className="text-decoration-none" to="/contact">
-                  <a className="nav-link n-item my-menu-btn text-light" href="#">Contact</a>
-                </Link>
+                <Link className="text-decoration-none nav-link n-item my-menu-btn text-light" to="/contact">Contact</Link>
               </li>
               <li className="nav-item">
               <Link className="text-decoration-none" to="/membership">
@@ -105,9 +97,9 @@ const Header = ({ BgColor }) => {
                 </Link>
               </li>
               <li className="nav-item s-icon">
-                <a className="nav-link" onClick={toggleSearch}>
+                <button type="button" className="nav-link bg-transparent border-0" onClick={toggleSearch} aria-label="Toggle search">
                   <FontAwesomeIcon icon={faSearch} className="search-icon" />
-                </a>
+                </button>
               </li>
             </ul>
 

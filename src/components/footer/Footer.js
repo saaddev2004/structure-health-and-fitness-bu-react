@@ -40,27 +40,13 @@ const Footer = () => {
             <div className='col-md-4 col-12 text-center text-md-start'>
               <h4 className='footer-title  pt-3' >Useful Links</h4>
               <div className='center-footer-links pt-3'>
-                <Link className="text-decoration-none border-0" to="/">
-                  <a href='' className='pt-0'>Home</a>
-                </Link>
-                <Link className="text-decoration-none border-0" to="/our-branches">
-                  <a href=''>Our Branches</a>
-                </Link>
-                <Link className="text-decoration-none border-0" to="/why-us">
-                  <a href=''>Why Us</a>
-                </Link>
-                <Link className="text-decoration-none border-0" to="/why-us">
-                  <a href=''>Trainers</a>
-                </Link>
-                <Link className="text-decoration-none border-0" to="/why-us">
-                  <a href=''>Blog</a>
-                </Link>
-                <Link className="text-decoration-none border-0" to="/contact">
-                  <a href=''>Contact Us</a>
-                </Link>
-                <Link className="text-decoration-none border-0" to="/membership">
-                  <a href='' className='border-0'>Work With Us</a>
-                </Link>
+                <Link className="text-decoration-none border-0 pt-0" to="/">Home</Link>
+                <Link className="text-decoration-none border-0" to="/our-branches">Our Branches</Link>
+                <Link className="text-decoration-none border-0" to="/why-us">Why Us</Link>
+                <Link className="text-decoration-none border-0" to="/why-us">Trainers</Link>
+                <Link className="text-decoration-none border-0" to="/why-us">Blog</Link>
+                <Link className="text-decoration-none border-0" to="/contact">Contact Us</Link>
+                <Link className="text-decoration-none border-0" to="/membership">Work With Us</Link>
               </div>
             </div>
             <div className='col-md-4 col-12 text-center text-md-start '>
@@ -112,7 +98,7 @@ const Footer = () => {
 
       </div>
       <div className='footer-copyright' >
-        Copyright © 2023 – 2024 | <a href=''>Structure Health & Fitness</a>
+        Copyright © 2023 – 2024 | <span>Structure Health & Fitness</span>
       </div>
     </div>
   )

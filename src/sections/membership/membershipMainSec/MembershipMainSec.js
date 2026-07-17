@@ -97,6 +97,7 @@ const MembershipMainSec = () => {
         }],
       }));
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [formData.weight, formData.heightFeet, formData.heightInches]);
 
   const handleChange = (e) => {

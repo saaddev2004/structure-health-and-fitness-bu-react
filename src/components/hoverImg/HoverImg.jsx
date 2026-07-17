@@ -19,16 +19,16 @@ const HoverImg = () => {
                     <div className='col-md-6 col-12 bg-img-r'>
                     <img src={`${process.env.PUBLIC_URL}/assets/images/our_classes.webp`} alt='classes' />
 
-                        <a href='#' className='our-btn '>
+                        <button type='button' className='our-btn '>
                             OUR CLASSES
-                        </a>
+                        </button>
                     </div>
                     <div className='col-md-6 col-12 bg-img-l'>
                     <img src={`${process.env.PUBLIC_URL}/assets/images/our_branches.webp`} alt='classes' />
 
-                        <a href='#' className='our-btn'>
+                        <button type='button' className='our-btn'>
                             OUR TRAINERS
-                        </a>
+                        </button>
                     </div>
                 </div>
             </div>
